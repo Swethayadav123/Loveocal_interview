@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+int lengthOfLastWord(char *s) {
+    int length = 0;
+    int i = strlen(s) - 1;
+
+    // Skip trailing spaces
+    while (i >= 0 && s[i] == ' ') {
+        i--;
+    }
+
+    // Count the length of the last word
+    while (i >= 0 && s[i] != ' ') {
+        length++;
+        i--;
+    }
+
+    return length;
+}
+
+int main() {
+    char input[100];  
+
+    printf("Enter a string: ");
+    scanf("%s", input);
+
+    int result = lengthOfLastWord(input);
+
+    printf("Length of the last word: %d\n", result);
+
+    return 0;
+}
